@@ -14,6 +14,7 @@
 		C0C8E1BD1B2512AA0036BF2F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0C8E1BC1B2512AA0036BF2F /* Images.xcassets */; };
 		C0C8E1C01B2512AA0036BF2F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0C8E1BE1B2512AA0036BF2F /* LaunchScreen.xib */; };
 		C0C8E1CC1B2512AB0036BF2F /* MemeMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8E1CB1B2512AB0036BF2F /* MemeMeTests.swift */; };
+		C0C8E1D61B251B250036BF2F /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8E1D51B251B250036BF2F /* Meme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		C0C8E1C51B2512AB0036BF2F /* MemeMeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MemeMeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0C8E1CA1B2512AB0036BF2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0C8E1CB1B2512AB0036BF2F /* MemeMeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeMeTests.swift; sourceTree = "<group>"; };
+		C0C8E1D51B251B250036BF2F /* Meme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				C0C8E1B31B2512AA0036BF2F /* AppDelegate.swift */,
+				C0C8E1D51B251B250036BF2F /* Meme.swift */,
 				C0C8E1B51B2512AA0036BF2F /* TableViewController.swift */,
 				C0C8E1B71B2512AA0036BF2F /* CollectionViewController.swift */,
 				C0C8E1B91B2512AA0036BF2F /* Main.storyboard */,
@@ -216,6 +219,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0C8E1B81B2512AA0036BF2F /* CollectionViewController.swift in Sources */,
+				C0C8E1D61B251B250036BF2F /* Meme.swift in Sources */,
 				C0C8E1B41B2512AA0036BF2F /* AppDelegate.swift in Sources */,
 				C0C8E1B61B2512AA0036BF2F /* TableViewController.swift in Sources */,
 			);

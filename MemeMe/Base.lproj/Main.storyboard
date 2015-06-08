@@ -9,7 +9,10 @@
         <scene sceneID="yl2-sM-qoP">
             <objects>
                 <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="boW-XN-crU"/>
+                    <navigationItem key="navigationItem" id="boW-XN-crU">
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="MRf-Dh-3gU"/>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
@@ -34,6 +37,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Ik7-el-SBK">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="xfl-iu-61n" kind="relationship" relationship="rootViewController" id="Pp7-SH-HIo"/>
                     </connections>
@@ -42,10 +48,10 @@
             </objects>
             <point key="canvasLocation" x="-345" y="-787"/>
         </scene>
-        <!--View Controller-->
+        <!--Table View Controller-->
         <scene sceneID="t8E-x7-Gfw">
             <objects>
-                <viewController id="xfl-iu-61n" sceneMemberID="viewController">
+                <viewController id="xfl-iu-61n" customClass="TableViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="GoQ-3b-K0o"/>
                         <viewControllerLayoutGuide type="bottom" id="JmT-GC-hEE"/>
@@ -97,7 +103,13 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="KZz-ug-AbV"/>
+                    <navigationItem key="navigationItem" id="KZz-ug-AbV">
+                        <barButtonItem key="rightBarButtonItem" title="Plus" id="mwi-Cd-cEg">
+                            <connections>
+                                <action selector="AddButton:" destination="xfl-iu-61n" id="Mnl-Kt-ms6"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ssy-ax-Jd4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -120,10 +132,10 @@
             </objects>
             <point key="canvasLocation" x="-345" y="-34"/>
         </scene>
-        <!--View Controller-->
+        <!--Collection View Controller-->
         <scene sceneID="ToT-2F-TDp">
             <objects>
-                <viewController id="9kQ-7i-jOs" sceneMemberID="viewController">
+                <viewController id="9kQ-7i-jOs" customClass="CollectionViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pYp-0d-Oa1"/>
                         <viewControllerLayoutGuide type="bottom" id="I50-9K-KKH"/>
