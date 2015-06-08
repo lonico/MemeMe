@@ -1,5 +1,5 @@
 //
-//  SecondViewController.swift
+//  CollectionViewController.swift
 //  MemeMe
 //
 //  Created by Laurent Nicolas on 6/7/15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
+class CollectionViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

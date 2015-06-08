@@ -1,5 +1,5 @@
 //
-//  FirstViewController.swift
+//  TableViewController.swift
 //  MemeMe
 //
 //  Created by Laurent Nicolas on 6/7/15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
+class TableViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

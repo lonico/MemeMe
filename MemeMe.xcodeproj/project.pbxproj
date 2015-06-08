@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		C0C8E1B41B2512AA0036BF2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8E1B31B2512AA0036BF2F /* AppDelegate.swift */; };
-		C0C8E1B61B2512AA0036BF2F /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8E1B51B2512AA0036BF2F /* FirstViewController.swift */; };
-		C0C8E1B81B2512AA0036BF2F /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8E1B71B2512AA0036BF2F /* SecondViewController.swift */; };
+		C0C8E1B61B2512AA0036BF2F /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8E1B51B2512AA0036BF2F /* TableViewController.swift */; };
+		C0C8E1B81B2512AA0036BF2F /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C8E1B71B2512AA0036BF2F /* CollectionViewController.swift */; };
 		C0C8E1BB1B2512AA0036BF2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0C8E1B91B2512AA0036BF2F /* Main.storyboard */; };
 		C0C8E1BD1B2512AA0036BF2F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0C8E1BC1B2512AA0036BF2F /* Images.xcassets */; };
 		C0C8E1C01B2512AA0036BF2F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0C8E1BE1B2512AA0036BF2F /* LaunchScreen.xib */; };
@@ -30,8 +30,8 @@
 		C0C8E1AE1B2512AA0036BF2F /* MemeMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemeMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0C8E1B21B2512AA0036BF2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0C8E1B31B2512AA0036BF2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C0C8E1B51B2512AA0036BF2F /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		C0C8E1B71B2512AA0036BF2F /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		C0C8E1B51B2512AA0036BF2F /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		C0C8E1B71B2512AA0036BF2F /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		C0C8E1BA1B2512AA0036BF2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C0C8E1BC1B2512AA0036BF2F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C0C8E1BF1B2512AA0036BF2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -80,8 +80,8 @@
 			isa = PBXGroup;
 			children = (
 				C0C8E1B31B2512AA0036BF2F /* AppDelegate.swift */,
-				C0C8E1B51B2512AA0036BF2F /* FirstViewController.swift */,
-				C0C8E1B71B2512AA0036BF2F /* SecondViewController.swift */,
+				C0C8E1B51B2512AA0036BF2F /* TableViewController.swift */,
+				C0C8E1B71B2512AA0036BF2F /* CollectionViewController.swift */,
 				C0C8E1B91B2512AA0036BF2F /* Main.storyboard */,
 				C0C8E1BC1B2512AA0036BF2F /* Images.xcassets */,
 				C0C8E1BE1B2512AA0036BF2F /* LaunchScreen.xib */,
@@ -215,9 +215,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C0C8E1B81B2512AA0036BF2F /* SecondViewController.swift in Sources */,
+				C0C8E1B81B2512AA0036BF2F /* CollectionViewController.swift in Sources */,
 				C0C8E1B41B2512AA0036BF2F /* AppDelegate.swift in Sources */,
-				C0C8E1B61B2512AA0036BF2F /* FirstViewController.swift in Sources */,
+				C0C8E1B61B2512AA0036BF2F /* TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
