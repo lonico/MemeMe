@@ -20,7 +20,8 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate, UINavigat
     
     let memeMeTextAttributes = [
         NSStrokeColorAttributeName : UIColor.blackColor(),
-        NSForegroundColorAttributeName: UIColor.whiteColor(),
+        NSForegroundColorAttributeName: UIColor.greenColor(),
+        NSBackgroundColorAttributeName: UIColor.clearColor(),
         NSFontAttributeName: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
         NSStrokeWidthAttributeName: 2
     ]
@@ -40,7 +41,6 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate, UINavigat
             textField.textColor = UIColor.blueColor()
             textField.textAlignment = NSTextAlignment.Center
             //textField.autocapitalizationType = UITextAutocapitalizationType.AllCharacters
-            
         }
 
         self.navigationController?.navigationBarHidden = true

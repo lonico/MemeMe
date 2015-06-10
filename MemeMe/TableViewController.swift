@@ -26,6 +26,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         memes = appDelegate.memes
         self.navigationController?.toolbarHidden = true
+        self.navigationController?.navigationBarHidden = false
         
         if memes.count == 0 {
             println("TODO: push editor")
