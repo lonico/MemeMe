@@ -25,10 +25,11 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     override func viewWillAppear(animated: Bool) {
         var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         memes = appDelegate.memes
+        self.navigationController?.toolbarHidden = true
         
         if memes.count == 0 {
             println("TODO: push editor")
-            
+            pushMemeEditorVC()
         }
     }
 
@@ -43,16 +44,20 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         return cell
     }
     
-    // Mark action button
+    // Mark - action button
     
     @IBAction func AddButton(sender: UIButton) {
-        
-        let memeEditorVC = self.storyboard?.instantiateViewControllerWithIdentifier("") as! UIViewController
-        
-        self.navigationController?.pushViewController(memeEditorVC, animated: true)
-        
+        pushMemeEditorVC()
     }
     
+    // Mark - push meme editor VC
+    
+    func pushMemeEditorVC() {
+        let memeEditorVC = self.storyboard?.instantiateViewControllerWithIdentifier("MemeEditorViewController") as! UIViewController
+        
+        memeEditorVC.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(memeEditorVC, animated: true)
+    }
     
 }
 
