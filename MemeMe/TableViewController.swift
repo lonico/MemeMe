@@ -28,20 +28,27 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.navigationController?.toolbarHidden = true
         self.navigationController?.navigationBarHidden = false
         
+        println("TableViewController count: \(memes.count)")
         if memes.count == 0 {
             println("TODO: push editor")
             pushMemeEditorVC()
         }
+        
     }
 
     // MARK - table data source
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        println("count: \(memes.count)")
         return memes.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("MemeTableCell", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("MemeTableCell", forIndexPath: indexPath) as! TableViewCell
+        cell.rowImage.image = memes[indexPath.row].memedImage
+        cell.topText.text = memes[indexPath.row].topText
+        println("topText")
+        println(cell.topText.text)
         return cell
     }
     
