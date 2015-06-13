@@ -10,6 +10,7 @@ import UIKit
 
 class CollectionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
+    @IBOutlet weak var collectionView: UICollectionView!
     var memes = [Meme]()
     
     override func viewDidLoad() {
@@ -33,7 +34,7 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
             println("TODO: push editor")
             pushMemeEditorVC()
         }
-
+        collectionView.reloadData()
     }
 
     // MARK - CollectionView Data Source
@@ -49,6 +50,14 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
         return cell
     }
     
+    // MARK - CollectionView delegate
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let memeDetailVC = self.storyboard?.instantiateViewControllerWithIdentifier("memeDetailViewController") as! MemeDetailViewController
+        memeDetailVC.memeImage = memes[indexPath.row].memedImage
+        self.navigationController?.pushViewController(memeDetailVC, animated: true)
+    }
+    
     // Mark - push meme editor VC
     
     func pushMemeEditorVC() {
@@ -59,6 +68,9 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
         //presentViewController(memeEditorVC, animated: true, completion: nil)
     }
     
+    @IBAction func addAction(sender: UIBarButtonItem) {
+        pushMemeEditorVC()
+    }
 
 }
 

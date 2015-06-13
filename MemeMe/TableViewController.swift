@@ -54,6 +54,14 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         return cell
     }
     
+    // Mark - table delegate
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let memeDetailVC = self.storyboard?.instantiateViewControllerWithIdentifier("memeDetailViewController") as! MemeDetailViewController
+        memeDetailVC.memeImage = memes[indexPath.row].memedImage
+        self.navigationController?.pushViewController(memeDetailVC, animated: true)
+    }
+    
     // Mark - action button
     
     @IBAction func AddButton(sender: UIButton) {
@@ -67,7 +75,6 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         memeEditorVC.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(memeEditorVC, animated: true)
-        //presentViewController(memeEditorVC, animated: true, completion: nil)
     }
     
 }

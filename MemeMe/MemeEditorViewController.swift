@@ -30,8 +30,8 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate, UINavigat
     
     override func viewWillAppear(animated: Bool) {
         
-        topTextField.defaultTextAttributes = memeMeTextAttributes as [NSObject : AnyObject]
-        bottomTextField.defaultTextAttributes = memeMeTextAttributes as [NSObject : AnyObject]
+        topTextField.defaultTextAttributes = memeMeTextAttributes
+        bottomTextField.defaultTextAttributes = memeMeTextAttributes
         
         for textField in [topTextField, bottomTextField] {
             textField.delegate = self
