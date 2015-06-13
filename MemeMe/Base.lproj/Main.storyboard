@@ -49,7 +49,7 @@
             </objects>
             <point key="canvasLocation" x="-345" y="-787"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Sent Memes-->
         <scene sceneID="t8E-x7-Gfw">
             <objects>
                 <viewController id="xfl-iu-61n" customClass="TableViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
@@ -61,52 +61,110 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="T8O-FV-32N">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="91" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="T8O-FV-32N">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MemeTableCell" rowHeight="90" id="pvt-v4-YeW" customClass="TableViewCell" customModule="MemeMe" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MemeTableCell" rowHeight="91" id="pvt-v4-YeW" customClass="TableViewCell" customModule="MemeMe" customModuleProvider="target">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pvt-v4-YeW" id="MHd-Vd-jcR">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xvP-zx-XiH">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                                    <variation key="widthClass=compact" fixedFrame="YES">
-                                                        <rect key="frame" x="0.0" y="0.0" width="204" height="89"/>
-                                                    </variation>
                                                 </imageView>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A6z-Ac-qbE">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="top" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A6z-Ac-qbE">
+                                                    <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="180" id="6bc-3e-w9i">
+                                                            <variation key="widthClass=compact" constant="222"/>
+                                                        </constraint>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="6bc-3e-w9i"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <variation key="widthClass=compact">
+                                                        <mask key="constraints">
+                                                            <include reference="6bc-3e-w9i"/>
+                                                        </mask>
+                                                    </variation>
+                                                </textField>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FpM-z1-EFM">
                                                     <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
-                                                    <variation key="widthClass=compact" fixedFrame="YES">
-                                                        <rect key="frame" x="212" y="30" width="180" height="30"/>
-                                                    </variation>
                                                 </textField>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="FpM-z1-EFM" firstAttribute="trailing" secondItem="A6z-Ac-qbE" secondAttribute="trailing" id="37t-iA-ELZ"/>
+                                                <constraint firstItem="A6z-Ac-qbE" firstAttribute="leading" secondItem="xvP-zx-XiH" secondAttribute="trailing" constant="8" id="CKX-bc-Xkc">
+                                                    <variation key="widthClass=compact" constant="22"/>
+                                                </constraint>
+                                                <constraint firstAttribute="bottomMargin" secondItem="xvP-zx-XiH" secondAttribute="bottom" constant="-7" id="DKM-Vc-hQF"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="FpM-z1-EFM" secondAttribute="bottom" constant="1" id="GnZ-XE-a4r"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="A6z-Ac-qbE" secondAttribute="trailing" constant="-7" id="LUK-ZK-4EK">
+                                                    <variation key="widthClass=compact" constant="0.0"/>
+                                                </constraint>
+                                                <constraint firstItem="FpM-z1-EFM" firstAttribute="top" secondItem="A6z-Ac-qbE" secondAttribute="bottom" constant="13" id="SbL-wu-4gp"/>
+                                                <constraint firstItem="xvP-zx-XiH" firstAttribute="top" secondItem="MHd-Vd-jcR" secondAttribute="top" id="VA6-5g-xBc"/>
+                                                <constraint firstItem="xvP-zx-XiH" firstAttribute="leading" secondItem="MHd-Vd-jcR" secondAttribute="leading" id="Z6U-ip-FeA"/>
+                                                <constraint firstItem="FpM-z1-EFM" firstAttribute="leading" secondItem="A6z-Ac-qbE" secondAttribute="leading" id="mAT-by-gkh"/>
+                                                <constraint firstItem="A6z-Ac-qbE" firstAttribute="top" secondItem="MHd-Vd-jcR" secondAttribute="topMargin" id="qBQ-ec-aw3"/>
+                                            </constraints>
                                             <variation key="default">
                                                 <mask key="subviews">
                                                     <exclude reference="xvP-zx-XiH"/>
                                                     <exclude reference="A6z-Ac-qbE"/>
+                                                    <exclude reference="FpM-z1-EFM"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <exclude reference="DKM-Vc-hQF"/>
+                                                    <exclude reference="VA6-5g-xBc"/>
+                                                    <exclude reference="Z6U-ip-FeA"/>
+                                                    <exclude reference="CKX-bc-Xkc"/>
+                                                    <exclude reference="LUK-ZK-4EK"/>
+                                                    <exclude reference="qBQ-ec-aw3"/>
+                                                    <exclude reference="37t-iA-ELZ"/>
+                                                    <exclude reference="GnZ-XE-a4r"/>
+                                                    <exclude reference="SbL-wu-4gp"/>
+                                                    <exclude reference="mAT-by-gkh"/>
                                                 </mask>
                                             </variation>
                                             <variation key="widthClass=compact">
                                                 <mask key="subviews">
                                                     <include reference="xvP-zx-XiH"/>
                                                     <include reference="A6z-Ac-qbE"/>
+                                                    <include reference="FpM-z1-EFM"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <include reference="DKM-Vc-hQF"/>
+                                                    <include reference="VA6-5g-xBc"/>
+                                                    <include reference="Z6U-ip-FeA"/>
+                                                    <include reference="CKX-bc-Xkc"/>
+                                                    <include reference="LUK-ZK-4EK"/>
+                                                    <include reference="qBQ-ec-aw3"/>
+                                                    <include reference="37t-iA-ELZ"/>
+                                                    <include reference="GnZ-XE-a4r"/>
+                                                    <exclude reference="SbL-wu-4gp"/>
+                                                    <include reference="mAT-by-gkh"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="bottomText" destination="FpM-z1-EFM" id="JFc-7U-v5s"/>
                                             <outlet property="rowImage" destination="xvP-zx-XiH" id="1Th-kY-eK4"/>
                                             <outlet property="topText" destination="A6z-Ac-qbE" id="jH4-Nv-6FA"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <sections/>
                                 <connections>
-                                    <outlet property="dataSource" destination="xfl-iu-61n" id="gL5-Oy-5MY"/>
-                                    <outlet property="delegate" destination="xfl-iu-61n" id="MSL-lX-EeF"/>
+                                    <outlet property="dataSource" destination="xfl-iu-61n" id="2Jy-vE-mkB"/>
+                                    <outlet property="delegate" destination="xfl-iu-61n" id="oEx-Av-mlf"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -141,7 +199,7 @@
                         </variation>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="KZz-ug-AbV">
+                    <navigationItem key="navigationItem" title="Sent Memes" id="KZz-ug-AbV">
                         <barButtonItem key="backBarButtonItem" title="Sent Memes" id="Y1y-xX-kP2"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="mwi-Cd-cEg">
                             <connections>
@@ -149,6 +207,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="T8O-FV-32N" id="MiM-wJ-TPz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ssy-ax-Jd4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -317,6 +378,7 @@
                         <outlet property="imagePickerView" destination="rZY-TD-fBy" id="SIQ-UG-Ptd"/>
                         <outlet property="shareButton" destination="RJd-eN-CFJ" id="5yQ-Zq-f3T"/>
                         <outlet property="topTextField" destination="UEb-Gb-ApZ" id="PId-vq-sbw"/>
+                        <outlet property="topToolBar" destination="uTm-ml-3yu" id="8KB-2q-jYp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wOW-wx-JvF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -354,21 +416,42 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="1EC-00-hXx">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Rbj-MH-FsZ">
-                                    <size key="itemSize" width="50" height="50"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="10" id="Rbj-MH-FsZ">
+                                    <size key="itemSize" width="100" height="100"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="memeCollectionCell" id="9Sd-NZ-di1">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="memeCollectionCell" id="9Sd-NZ-di1" customClass="CollectionViewCell" customModule="MemeMe" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Hhc-13-2sn">
+                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                                    <variation key="widthClass=compact" fixedFrame="YES">
+                                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                    </variation>
+                                                </imageView>
+                                            </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <variation key="default">
+                                            <mask key="subviews">
+                                                <exclude reference="Hhc-13-2sn"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="widthClass=compact">
+                                            <mask key="subviews">
+                                                <include reference="Hhc-13-2sn"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <outlet property="collectionCellImage" destination="Hhc-13-2sn" id="CfX-sS-L0b"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>

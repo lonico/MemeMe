@@ -13,6 +13,7 @@ class TableViewCell: UITableViewCell {
     
     @IBOutlet weak var rowImage: UIImageView!
     @IBOutlet weak var topText: UITextField!
+    @IBOutlet weak var bottomText: UITextField!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -15,6 +15,8 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate, UINavigat
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var cameraButtonImage: UIBarButtonItem!
     @IBOutlet weak var shareButton: UIBarButtonItem!
+    @IBOutlet weak var topToolBar: UIToolbar!
+    
     var inited = false
     var memedImage: UIImage!
     
@@ -139,7 +141,7 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate, UINavigat
         println(returnedItems)
         save()
         self.dismissViewControllerAnimated(true, completion: nil)
-        self.navigationController?.popToRootViewControllerAnimated(true)
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     // Mark - UIImagePickerDelegate
@@ -167,10 +169,12 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate, UINavigat
         appDelegate.memes.append(meme)
     }
     
+    
     func generateMemeImage() -> UIImage {
-        // TODO: Hide toolbar and navbar
+        // Hide toolbar and navbar
         self.navigationController?.toolbarHidden = true
         self.navigationController?.navigationBarHidden = true
+        topToolBar.hidden = true
         
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
@@ -180,10 +184,9 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate, UINavigat
         UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        // TODO:  Show toolbar and navbar
+        // Show toolbar and navbar
         self.navigationController?.toolbarHidden = false
-        self.navigationController?.navigationBarHidden = false
-        
+        topToolBar.hidden = false
         return memedImage
     }
 }

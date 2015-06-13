@@ -11,6 +11,7 @@ import UIKit
 class TableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     var memes: [Meme]!
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +24,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
 
     override func viewWillAppear(animated: Bool) {
-        var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         memes = appDelegate.memes
         self.navigationController?.toolbarHidden = true
         self.navigationController?.navigationBarHidden = false
@@ -33,13 +34,13 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             println("TODO: push editor")
             pushMemeEditorVC()
         }
-        
+        self.tableView.reloadData()
     }
 
     // MARK - table data source
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        println("count: \(memes.count)")
+        println("tVcount: \(memes.count)")
         return memes.count
     }
     
@@ -47,6 +48,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         let cell = tableView.dequeueReusableCellWithIdentifier("MemeTableCell", forIndexPath: indexPath) as! TableViewCell
         cell.rowImage.image = memes[indexPath.row].memedImage
         cell.topText.text = memes[indexPath.row].topText
+        cell.bottomText.text = memes[indexPath.row].bottomText
         println("topText")
         println(cell.topText.text)
         return cell
@@ -65,6 +67,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         memeEditorVC.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(memeEditorVC, animated: true)
+        //presentViewController(memeEditorVC, animated: true, completion: nil)
     }
     
 }
