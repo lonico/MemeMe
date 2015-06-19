@@ -19,30 +19,27 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate, UINavigat
     
     var inited = false
     var memedImage: UIImage!
+    // after picking a picture, when calling textField.resignFirstResponder()
+    // the observer may notify twice
+    var shifted_view = false
     
     let memeMeTextAttributes = [
         NSFontAttributeName: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
         NSForegroundColorAttributeName: UIColor.whiteColor(),
         NSStrokeColorAttributeName: UIColor.blackColor(),
-        NSBackgroundColorAttributeName: UIColor.orangeColor(),
-        NSStrokeWidthAttributeName: 3,
+        NSStrokeWidthAttributeName: -3,
     ]
     
     override func viewWillAppear(animated: Bool) {
         
-        topTextField.defaultTextAttributes = memeMeTextAttributes
-        bottomTextField.defaultTextAttributes = memeMeTextAttributes
-        
         for textField in [topTextField, bottomTextField] {
             textField.delegate = self
             textField.tag = 0
-            //textField.defaultTextAttributes = memeMeTextAttributes
-            //textField.textColor = UIColor.blueColor()
+            textField.defaultTextAttributes = memeMeTextAttributes
             textField.textAlignment = NSTextAlignment.Center
         }
         if !inited {
             shareButton.enabled = false
-
             topTextField.text    = "TOP TEXT"
             bottomTextField.text = "BOTTOM TEXT"
             inited = true
@@ -70,7 +67,9 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate, UINavigat
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         // dismiss keyboard
+        println("will dismiss keyword")
         textField.resignFirstResponder()
+        println("dismissed keyword")
         return true
     }
     
@@ -80,12 +79,15 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate, UINavigat
         if bottomTextField.isFirstResponder() {
             println("shifting up")
             self.view.frame.origin.y -= getKeyboardHeight(notification)
+            self.shifted_view = true
         }
     }
     
     func keyboardWillHide(notification: NSNotification) {
-        if bottomTextField.isFirstResponder() {
+        if bottomTextField.isFirstResponder() && self.shifted_view {
+            println("shifting down")
             self.view.frame.origin.y += getKeyboardHeight(notification)
+            self.shifted_view = false
         }
     }
     
@@ -126,12 +128,11 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate, UINavigat
         let activityVC = UIActivityViewController(activityItems: activities, applicationActivities: nil)
         activityVC.completionWithItemsHandler = activityVCCompletion
         activityVC.navigationController?.navigationBarHidden = true
-        //self.navigationController?.navigationBar.hidden = true
         self.presentViewController(activityVC, animated: true, completion: nil)
     }
     
     @IBAction func cancelAction(sender: UIBarButtonItem) {
-        self.navigationController?.popToRootViewControllerAnimated(true)
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     // MARK - activity VC completion
@@ -180,8 +181,7 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate, UINavigat
         UIGraphicsBeginImageContext(self.view.frame.size)
         self.view.drawViewHierarchyInRect(self.view.frame,
             afterScreenUpdates: true)
-        let memedImage : UIImage =
-        UIGraphicsGetImageFromCurrentImageContext()
+        let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
         // Show toolbar and navbar

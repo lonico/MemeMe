@@ -13,25 +13,13 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
     @IBOutlet weak var collectionView: UICollectionView!
     var memes = [Meme]()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     override func viewWillAppear(animated: Bool) {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         memes = appDelegate.memes
         self.navigationController?.toolbarHidden = true
         self.navigationController?.navigationBarHidden = false
         
-        println("CollectionViewController count: \(memes.count)")
         if memes.count == 0 {
-            println("TODO: push editor")
             pushMemeEditorVC()
         }
         collectionView.reloadData()
@@ -40,7 +28,6 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
     // MARK - CollectionView Data Source
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        println("cVcount: \(memes.count)")
         return memes.count
     }
     

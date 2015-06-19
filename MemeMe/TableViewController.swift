@@ -13,25 +13,13 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     var memes: [Meme]!
     @IBOutlet weak var tableView: UITableView!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     override func viewWillAppear(animated: Bool) {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         memes = appDelegate.memes
         self.navigationController?.toolbarHidden = true
         self.navigationController?.navigationBarHidden = false
         
-        println("TableViewController count: \(memes.count)")
         if memes.count == 0 {
-            println("TODO: push editor")
             pushMemeEditorVC()
         }
         self.tableView.reloadData()
@@ -40,7 +28,6 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     // MARK - table data source
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        println("tVcount: \(memes.count)")
         return memes.count
     }
     
@@ -49,8 +36,6 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         cell.rowImage.image = memes[indexPath.row].memedImage
         cell.topText.text = memes[indexPath.row].topText
         cell.bottomText.text = memes[indexPath.row].bottomText
-        println("topText")
-        println(cell.topText.text)
         return cell
     }
     

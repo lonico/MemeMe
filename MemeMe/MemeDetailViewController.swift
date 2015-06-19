@@ -15,6 +15,10 @@ class MemeDetailViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         detailImageView.image = memeImage
+        self.navigationController?.navigationBarHidden = false
+        self.navigationController?.toolbarHidden = true
+        let a = self.view.frame.size
+        println(a.height, a.width)
     }
     
     override func viewDidLoad() {
@@ -28,7 +32,20 @@ class MemeDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func addAction(sender: AnyObject) {
+        pushMemeEditorVC()
+    }
 
+    // Mark - push meme editor VC
+    
+    func pushMemeEditorVC() {
+        let memeEditorVC = self.storyboard?.instantiateViewControllerWithIdentifier("MemeEditorViewController") as! UIViewController
+        
+        memeEditorVC.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(memeEditorVC, animated: true)
+    }
+
+    
     /*
     // MARK: - Navigation
 
