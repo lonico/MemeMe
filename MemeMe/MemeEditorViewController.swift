@@ -20,7 +20,7 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate, UINavigat
     var inited = false
     var memedImage: UIImage!
     // after picking a picture, when calling textField.resignFirstResponder()
-    // the observer may notify twice
+    // the observer may notify twice, making sure we don't shift more than once
     var shifted_view = false
     
     let memeMeTextAttributes = [
@@ -67,17 +67,14 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate, UINavigat
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         // dismiss keyboard
-        println("will dismiss keyword")
         textField.resignFirstResponder()
-        println("dismissed keyword")
         return true
     }
     
     // MARK - move view when keyboard shows up or is dismissed
     
     func keyboardWillShow(notification: NSNotification) {
-        if bottomTextField.isFirstResponder() {
-            println("shifting up")
+        if bottomTextField.isFirstResponder() && !self.shifted_view {
             self.view.frame.origin.y -= getKeyboardHeight(notification)
             self.shifted_view = true
         }
@@ -85,7 +82,6 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate, UINavigat
     
     func keyboardWillHide(notification: NSNotification) {
         if bottomTextField.isFirstResponder() && self.shifted_view {
-            println("shifting down")
             self.view.frame.origin.y += getKeyboardHeight(notification)
             self.shifted_view = false
         }
@@ -138,8 +134,6 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate, UINavigat
     // MARK - activity VC completion
     
     func activityVCCompletion(activityType: String!, completed: Bool, returnedItems: [AnyObject]!, activityError: NSError!) {
-        println("activityCompletion")
-        println(returnedItems)
         save()
         self.dismissViewControllerAnimated(true, completion: nil)
         self.navigationController?.popViewControllerAnimated(true)
@@ -169,7 +163,6 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate, UINavigat
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.memes.append(meme)
     }
-    
     
     func generateMemeImage() -> UIImage {
         // Hide toolbar and navbar

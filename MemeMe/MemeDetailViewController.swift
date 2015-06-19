@@ -17,19 +17,6 @@ class MemeDetailViewController: UIViewController {
         detailImageView.image = memeImage
         self.navigationController?.navigationBarHidden = false
         self.navigationController?.toolbarHidden = true
-        let a = self.view.frame.size
-        println(a.height, a.width)
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func addAction(sender: AnyObject) {
@@ -44,16 +31,5 @@ class MemeDetailViewController: UIViewController {
         memeEditorVC.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(memeEditorVC, animated: true)
     }
-
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
