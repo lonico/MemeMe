@@ -12,6 +12,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
 
     var memes: [Meme]!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var editButton: UIBarButtonItem!
     
     override func viewWillAppear(animated: Bool) {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -22,6 +23,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         if memes.count == 0 {
             pushMemeEditorVC()
         }
+        stopEditing()
         self.tableView.reloadData()
     }
 
@@ -43,19 +45,51 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let memeDetailVC = self.storyboard?.instantiateViewControllerWithIdentifier("memeDetailViewController") as! MemeDetailViewController
-        memeDetailVC.memeImage = memes[indexPath.row].memedImage
+        memeDetailVC.memes = memes
+        memeDetailVC.index = indexPath.row
         self.navigationController?.pushViewController(memeDetailVC, animated: true)
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        // removing the meme, not deleting the image
+        memes.removeAtIndex(indexPath.row)
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.memes.removeAtIndex(indexPath.row)
+        self.tableView.reloadData()
     }
     
     // Mark - action button
     
-    @IBAction func AddButton(sender: UIButton) {
-        pushMemeEditorVC()
+    @IBAction func addButton(sender: UIBarButtonItem) {
+            pushMemeEditorVC()
+    }
+    
+    @IBAction func editButton(sender: UIBarButtonItem) {
+        if self.editing {
+            tableView.editing = false
+            editButton.title = "Edit"
+            self.editing = false
+        } else {
+            tableView.editing = true
+            editButton.title = "Done"
+            self.editing = true
+        }
+    }
+    
+    // Mark reset editing state
+    
+    func stopEditing() {
+        if self.editing {
+            tableView.editing = false
+            editButton.title = "Edit"
+            self.editing = false
+        }
     }
     
     // Mark - push meme editor VC
     
     func pushMemeEditorVC() {
+        stopEditing()
         let memeEditorVC = self.storyboard?.instantiateViewControllerWithIdentifier("MemeEditorViewController") as! UIViewController
         
         memeEditorVC.hidesBottomBarWhenPushed = true
