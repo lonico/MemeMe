@@ -271,9 +271,9 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6St-9K-NRi">
                                 <rect key="frame" x="0.0" y="512" width="600" height="44"/>
                                 <items>
-                                    <barButtonItem style="plain" systemItem="trash" id="oaM-Bq-IKT">
+                                    <barButtonItem systemItem="trash" id="oaM-Bq-IKT">
                                         <connections>
-                                            <action selector="deleteButton:" destination="3zz-ec-36m" id="QXK-Yz-saB"/>
+                                            <action selector="deleteButton:" destination="3zz-ec-36m" id="oxh-Fd-iMg"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -295,13 +295,15 @@
                         <barButtonItem key="backBarButtonItem" title="Sent memes" id="GEb-T7-qF9"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="u5I-BM-81c">
                             <connections>
-                                <action selector="addAction:" destination="3zz-ec-36m" id="qEX-gQ-4no"/>
+                                <action selector="addAction:" destination="3zz-ec-36m" id="THV-Gp-Ypn"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="deleteButtonOutlet" destination="oaM-Bq-IKT" id="PRW-Sc-YU5"/>
+                        <outlet property="deleteToolbar" destination="6St-9K-NRi" id="78p-1F-nFx"/>
                         <outlet property="detailImageView" destination="aud-3g-N2u" id="lun-Wh-jRc"/>
                     </connections>
                 </viewController>

@@ -76,14 +76,14 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate, UINavigat
     func keyboardWillShow(notification: NSNotification) {
         if bottomTextField.isFirstResponder() && !self.shifted_view {
             self.view.frame.origin.y -= getKeyboardHeight(notification)
-            self.shifted_view = true
+            shifted_view = true
         }
     }
     
     func keyboardWillHide(notification: NSNotification) {
         if bottomTextField.isFirstResponder() && self.shifted_view {
             self.view.frame.origin.y += getKeyboardHeight(notification)
-            self.shifted_view = false
+            shifted_view = false
         }
     }
     
@@ -104,18 +104,19 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate, UINavigat
     
     // Mark - Button Actions
     
-    @IBAction func pickAnImageFromCamera(sender: UIBarButtonItem) {
+    func presentPickerController(type: UIImagePickerControllerSourceType) {
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
-        pickerController.sourceType = UIImagePickerControllerSourceType.Camera
+        pickerController.sourceType = type
         self.presentViewController(pickerController, animated: true, completion: nil)
     }
     
+    @IBAction func pickAnImageFromCamera(sender: UIBarButtonItem) {
+        presentPickerController(UIImagePickerControllerSourceType.Camera)
+    }
+    
     @IBAction func pickAnImageFromAlbum(sender: UIBarButtonItem) {
-        let pickerController = UIImagePickerController()
-        pickerController.delegate = self
-        pickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        self.presentViewController(pickerController, animated: true, completion: nil)
+        presentPickerController(UIImagePickerControllerSourceType.PhotoLibrary)
     }
     
     @IBAction func shareAction(sender: UIBarButtonItem) {
@@ -131,12 +132,13 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate, UINavigat
         self.navigationController?.popViewControllerAnimated(true)
     }
     
-    // MARK - activity VC completion
+    // MARK - activity VC completion handler
     
     func activityVCCompletion(activityType: String!, completed: Bool, returnedItems: [AnyObject]!, activityError: NSError!) {
         save()
         self.dismissViewControllerAnimated(true, completion: nil)
-        self.navigationController?.popViewControllerAnimated(true)
+        //self.navigationController?.popViewControllerAnimated(true)
+        self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
     // Mark - UIImagePickerDelegate

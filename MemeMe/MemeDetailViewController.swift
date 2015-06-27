@@ -11,6 +11,9 @@ import UIKit
 class MemeDetailViewController: UIViewController {
 
     @IBOutlet weak var detailImageView: UIImageView!
+    @IBOutlet weak var deleteToolbar: UIToolbar!
+    @IBOutlet weak var deleteButtonOutlet: UIBarButtonItem!
+    
     var memes = [Meme]()
     var index: Int!
     
@@ -18,16 +21,27 @@ class MemeDetailViewController: UIViewController {
         detailImageView.image = memes[index].memedImage
         self.navigationController?.navigationBarHidden = false
         self.navigationController?.toolbarHidden = true
+        deleteToolbar.clipsToBounds = true
     }
     
     // Mark - actions
     
-    @IBAction func addAction(sender: AnyObject) {
+    @IBAction func addAction(sender: UIBarButtonItem) {
         pushMemeEditorVC()
     }
     
-    @IBAction func deleteButton(sender: AnyObject) {
+    @IBAction func deleteButton(sender: UIBarButtonItem) {
         // removing the meme, not deleting the image
+
+        let alert = UIAlertController(title: "Delete Meme", message: "really?", preferredStyle: UIAlertControllerStyle.Alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil)
+        let deleteAction = UIAlertAction(title: "Delete", style: UIAlertActionStyle.Default, handler: deleteMeme)
+        alert.addAction(cancelAction)
+        alert.addAction(deleteAction)
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func deleteMeme(action: UIAlertAction!) -> Void {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.memes.removeAtIndex(index)
         self.navigationController?.popViewControllerAnimated(true)
