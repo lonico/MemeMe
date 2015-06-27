@@ -43,6 +43,7 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
         let memeDetailVC = self.storyboard?.instantiateViewControllerWithIdentifier("memeDetailViewController") as! MemeDetailViewController
         memeDetailVC.memes = memes
         memeDetailVC.index = indexPath.row
+        memeDetailVC.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(memeDetailVC, animated: true)
     }
     
