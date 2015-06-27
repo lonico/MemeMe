@@ -15,6 +15,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     @IBOutlet weak var editButton: UIBarButtonItem!
     
     override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         memes = appDelegate.memes
         self.navigationController?.toolbarHidden = true
@@ -23,8 +24,12 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         if memes.count == 0 {
             pushMemeEditorVC()
         }
-        stopEditing()
         self.tableView.reloadData()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        stopEditing()
     }
 
     // MARK - table data source
@@ -90,7 +95,6 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     // Mark - push meme editor VC
     
     func pushMemeEditorVC() {
-        stopEditing()
         let memeEditorVC = self.storyboard?.instantiateViewControllerWithIdentifier("MemeEditorViewController") as! UIViewController
         
         memeEditorVC.hidesBottomBarWhenPushed = true

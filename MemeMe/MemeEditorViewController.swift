@@ -47,7 +47,6 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate, UINavigat
         
         self.navigationController?.navigationBarHidden = true
         self.navigationController?.toolbarHidden = false
-        self.tabBarController?.hidesBottomBarWhenPushed = true
         cameraButtonImage.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
         subscribeToKeyboardNotifications()
     }
@@ -137,7 +136,6 @@ class MemeEditorViewController: UIViewController, UITextFieldDelegate, UINavigat
     func activityVCCompletion(activityType: String!, completed: Bool, returnedItems: [AnyObject]!, activityError: NSError!) {
         save()
         self.dismissViewControllerAnimated(true, completion: nil)
-        //self.navigationController?.popViewControllerAnimated(true)
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
