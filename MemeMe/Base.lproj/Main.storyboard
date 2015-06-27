@@ -214,7 +214,9 @@
                             <constraint firstAttribute="bottom" secondItem="Qgy-hm-seu" secondAttribute="bottom" id="9nB-7R-cBL"/>
                             <constraint firstItem="nuZ-Ux-UWk" firstAttribute="trailing" secondItem="beh-tt-MHd" secondAttribute="trailingMargin" id="LN0-XE-eTV"/>
                             <constraint firstItem="Qgy-hm-seu" firstAttribute="leading" secondItem="beh-tt-MHd" secondAttribute="leading" id="Ldf-qr-yVe"/>
-                            <constraint firstItem="GSS-M0-n8E" firstAttribute="top" secondItem="Qgy-hm-seu" secondAttribute="bottom" constant="-124" id="R0N-8S-HQO"/>
+                            <constraint firstItem="GSS-M0-n8E" firstAttribute="top" secondItem="Qgy-hm-seu" secondAttribute="bottom" constant="-124" id="R0N-8S-HQO">
+                                <variation key="heightClass=regular" constant="-150"/>
+                            </constraint>
                             <constraint firstItem="GSS-M0-n8E" firstAttribute="trailing" secondItem="beh-tt-MHd" secondAttribute="trailingMargin" id="XCB-03-To1"/>
                             <constraint firstItem="nuZ-Ux-UWk" firstAttribute="leading" secondItem="beh-tt-MHd" secondAttribute="leadingMargin" id="XWC-cU-gxC"/>
                             <constraint firstItem="yjR-Pl-eB6" firstAttribute="width" secondItem="beh-tt-MHd" secondAttribute="width" id="cUJ-oC-Q5B"/>
