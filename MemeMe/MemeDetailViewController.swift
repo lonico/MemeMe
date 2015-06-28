@@ -14,14 +14,13 @@ class MemeDetailViewController: UIViewController {
     @IBOutlet weak var deleteToolbar: UIToolbar!
     @IBOutlet weak var deleteButtonOutlet: UIBarButtonItem!
     
-    var memes = [Meme]()
+    var memedImage: UIImage!
     var index: Int!
     
     override func viewWillAppear(animated: Bool) {
-        detailImageView.image = memes[index].memedImage
+        detailImageView.image = memedImage
         self.navigationController?.navigationBarHidden = false
         self.navigationController?.toolbarHidden = true
-        deleteToolbar.clipsToBounds = true
     }
     
     // Mark - actions

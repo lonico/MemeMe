@@ -50,7 +50,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let memeDetailVC = self.storyboard?.instantiateViewControllerWithIdentifier("memeDetailViewController") as! MemeDetailViewController
-        memeDetailVC.memes = memes
+        memeDetailVC.memedImage = memes[indexPath.row].memedImage
         memeDetailVC.index = indexPath.row
         memeDetailVC.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(memeDetailVC, animated: true)
